@@ -15,7 +15,7 @@
       </Resume>
     </template>
     <template #movements>
-      <Movements />
+      <Movements :movements="movements" />
     </template>
   </Layout>
 </template>
@@ -24,7 +24,7 @@
 import Layout from "./Layout.vue";
 import Header from "./Header.vue";
 import Resume from "./Resume/Index.vue";
-import Movements from "./Movements.vue";
+import Movements from "./Movements/Index.vue";
 
 export default {
   components: {
@@ -39,6 +39,38 @@ export default {
     return {
       label: null,
       amount: null,
+      movements: [
+        {
+          id: 0,
+          title: "Movimiento 1",
+          description: "Pago de servicios públicos",
+          amount: 1000,
+        },
+        {
+          id: 1,
+          title: "Movimiento 2",
+          description: "Pago de servicios públicos",
+          amount: 1000,
+        },
+        {
+          id: 2,
+          title: "Movimiento 3",
+          description: "Pago de servicios públicos",
+          amount: 3500,
+        },
+        {
+          id: 3,
+          title: "Movimiento 4",
+          description: "Pago de servicios públicos",
+          amount: 2000,
+        },
+        {
+          id: 4,
+          title: "Movimiento 5",
+          description: "Pago de servicios públicos",
+          amount: 2000,
+        },
+      ],
     };
   },
 };
