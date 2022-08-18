@@ -9,7 +9,10 @@
         :label="label"
         :totalAmount="30000"
         :amount="amount"
-      />
+      >
+        <template #graphic> graphic </template>
+        <template #action>action</template>
+      </Resume>
     </template>
     <template #movements>
       <Movements />
@@ -30,6 +33,8 @@ export default {
     Resume,
     Movements,
   },
+  //En la función data, se agrega la variable 'label'
+  // y se envía como parametro de 'label' en el template `Resume`
   data() {
     return {
       label: null,
