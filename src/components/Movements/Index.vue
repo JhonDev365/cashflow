@@ -2,10 +2,21 @@
   <div class="movements">
     <h2 class="title">Historial</h2>
     <div class="content">
-      <Movement
+      <!-- <Movement
         v-for="movement in movements"
         :key="movement.id"
         :title="movement.title"
+        :description="movement.description"
+        :amount="movement.amount"
+      /> -->
+      <!--otra forma de hacerlo seria -->
+      <Movement
+        v-for="{ id, title, description, amount } in movements"
+        :key="id"
+        :title="title"
+        :description="description"
+        :amount="amount"
+        @remove="remove"
       />
     </div>
   </div>
@@ -31,6 +42,11 @@ const props = defineProps({
 
 //destructuramos esta variable movements
 const { movements } = toRefs(props);
+
+//ahcemos una funcion handler para escuchar la props remove
+const remove = (id) => {
+  console.log("remove", id);
+};
 </script>
 
 <style scoped>

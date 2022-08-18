@@ -56,7 +56,7 @@ export default {
           id: 2,
           title: "Movimiento 3",
           description: "Pago de servicios públicos",
-          amount: 3500,
+          amount: -3500,
         },
         {
           id: 3,
@@ -68,7 +68,7 @@ export default {
           id: 4,
           title: "Movimiento 5",
           description: "Pago de servicios públicos",
-          amount: 2000,
+          amount: -2000,
         },
       ],
     };
