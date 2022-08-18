@@ -11,7 +11,8 @@
         :amount="amount"
       >
         <template #graphic>
-          <Graphic />
+          <!-- yapodemos traer el props amounts desde graphic -->
+          <Graphic :amounts="amounts" />
         </template>
         <template #action>
           <Action />
@@ -47,6 +48,7 @@ export default {
     return {
       label: null,
       amount: null,
+      amounts: [500, 200, -300, 250, -100, 0, 300],
       movements: [
         {
           id: 0,
