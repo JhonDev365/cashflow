@@ -30,7 +30,7 @@
 // defineProps: ejecuta una funcion que devuelve un objeto con los props
 //xa poder usar los props dentro de la sintaxis de template necesitamos hacerlos
 // reactivos con toRefs
-import { toRefs, defineProps } from "vue";
+import { toRefs, defineProps, defineEmits } from "vue";
 import Movement from "./Movement.vue";
 
 const props = defineProps({
@@ -45,9 +45,12 @@ const props = defineProps({
 //destructuramos esta variable movements
 const { movements } = toRefs(props);
 
+const emit = defineEmits(["remove"]);
+
 //ahcemos una funcion handler para escuchar la props remove
 const remove = (id) => {
-  console.log("remove", id);
+  // console.log("remove", id);
+  emit("remove", id);
 };
 </script>
 

@@ -53,7 +53,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
 import Modal from "./Modal.vue";
 
 const showModal = ref(false);
@@ -61,12 +61,24 @@ const title = ref("");
 const amount = ref(0);
 const description = ref("");
 const movementType = ref("Ingreso");
+// creamos la funcion con una lista de lso elementos a emitir y se pueden usar en submit
+const emit = defineEmits(["create"]);
 
 //creamos funcion submit para enviar y cerrar formulario
 const submit = () => {
   // showModal.value = false;
   //o tambien:
   showModal.value = !showModal.value;
+  //creamos el objetojson que le enviaremos al padre
+  //y lo podemos escuchar desde Home
+  emit("create", {
+    title: title.value,
+    description: description.value,
+    amount: movementType.value === "Ingreso" ? amount.value : -amount.value,
+    time: new Date(),
+    //podeos usarlo como id ya que en el msimo seg no se generan 2 datos
+    id: new Date().getTime(),
+  });
 };
 </script>
 
