@@ -1,7 +1,9 @@
 <template>
   <header>
-    <img @click="reload" src="@/assets/cashflow-icon.svg" alt="logo" />
-    <h1><span>Cash</span>Flow</h1>
+    <!-- <img @click="reload" src="@/assets/cashflow-icon.svg" alt="logo" /> -->
+    <img @click="reload" src="@/assets/ibazan.webp" alt="logo" />
+    <!-- <h1><span>Cash</span>Flow</h1> -->
+    <h1><span>Ibazan</span>App</h1>
   </header>
 </template>
 

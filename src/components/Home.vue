@@ -4,14 +4,15 @@
       <Header />
     </template>
     <template #resume>
+      <!-- :totalLabel="'Ahorro total'" -->
       <Resume
-        :totalLabel="'Ahorro total'"
+        :totalLabel="'Historial de ruta'"
         :label="label"
         :totalAmount="30000"
         :amount="amount"
       >
         <template #graphic>
-          <!-- yapodemos traer el props amounts desde graphic -->
+          <!-- yapodemos pasarle y recibir las props amounts a graphic -->
           <Graphic :amounts="amounts" />
         </template>
         <template #action>
@@ -48,37 +49,66 @@ export default {
     return {
       label: null,
       amount: null,
-      amounts: [500, 200, -300, 250, -100, 0, 300],
       movements: [
         {
           id: 0,
-          title: "Movimiento 1",
-          description: "Pago de servicios públicos",
-          amount: 1000,
+          title: "Ruta Cal51",
+          description: "Supercercado Comfandi",
+          amount: 500,
         },
         {
           id: 1,
-          title: "Movimiento 2",
-          description: "Pago de servicios públicos",
-          amount: 1000,
+          title: "Ruta Cal52",
+          description: "C.C. La Estación",
+          amount: 200,
         },
         {
           id: 2,
-          title: "Movimiento 3",
-          description: "Pago de servicios públicos",
-          amount: -3500,
+          title: "Ruta Cal52",
+          description: "Ramsa",
+          amount: -300,
         },
         {
           id: 3,
-          title: "Movimiento 4",
-          description: "Pago de servicios públicos",
-          amount: 2000,
+          title: "Ruta Cal53",
+          description: "Nutresa",
+          amount: 250,
         },
         {
           id: 4,
-          title: "Movimiento 5",
-          description: "Pago de servicios públicos",
-          amount: -2000,
+          title: "Ruta Cal54",
+          description: "Popsy",
+          amount: -100,
+        },
+        {
+          id: 5,
+          title: "Ruta Cal54",
+          description: "Popsy",
+          amount: 0,
+        },
+        {
+          id: 6,
+          title: "Ruta Cal54",
+          description: "Popsy",
+          amount: 300,
+        },
+        {
+          id: 7,
+          title: "Ruta Cal54",
+          description: "Popsy",
+          amount: 100,
+        },
+        {
+          id: 8,
+          title: "Ruta Cal54",
+          description: "Popsy",
+          amount: 480,
+        },
+        {
+          id: 9,
+          title: "Ruta Cal54",
+          description: "Popsy",
+          amount: -350,
         },
       ],
     };

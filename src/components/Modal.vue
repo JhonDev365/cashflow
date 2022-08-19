@@ -1,7 +1,8 @@
 <template>
   <div class="modal">
     <div class="head">
-      <p>Nuevo movimiento</p>
+      <!-- <p>Nuevo movimiento</p> -->
+      <p>Nueva Ruta</p>
       <img @click="close" src="@/assets/close-icon.svg" alt="cerrar" />
     </div>
     <div class="body">

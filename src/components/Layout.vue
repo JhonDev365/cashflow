@@ -51,7 +51,8 @@ const showMovements = ref(false);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px;
+  /* padding: 24px; */
+  padding: 10px;
   width: 100%;
   box-sizing: border-box;
 }

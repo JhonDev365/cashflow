@@ -1,6 +1,12 @@
 <template>
   <div>
-    <svg viewBox="0,0 300 200">
+    <!--para escuchar cuando tocamos la pantalla necesitamos 3 eventos -->
+    <svg
+      @touchstart="tap"
+      @touchmove="tap"
+      @touchend="untap"
+      viewBox="0,0 300 200"
+    >
       <line
         stroke="#c4c4c4"
         stroke-width="2"
@@ -19,11 +25,12 @@
         :points="points"
       />
       <line
+        v-show="showPointer"
         stroke="#04b500"
         stroke-width="2"
-        x1="200"
+        :x1="pointer"
         y1="0"
-        x2="200"
+        :x2="pointer"
         y2="200"
       />
     </svg>
@@ -33,7 +40,7 @@
 </template>
 
 <script setup>
-import { defineProps, toRefs, computed } from "vue";
+import { defineProps, toRefs, ref, computed } from "vue";
 const props = defineProps({
   //para que sa reactiva debe ser una funcion
   amounts: {
@@ -72,6 +79,24 @@ const points = computed(() => {
     return `${points} ${x},${y}`;
   }, "0, 100");
 });
+
+const showPointer = ref(false);
+const pointer = ref(0);
+//creamos las funciones para tap y untap de los eventos touch
+const tap = ({ target, touches }) => {
+  showPointer.value = true;
+  //elementWidth. tamaño de SVG
+  const elementWidth = target.getBoundingClientRect().width;
+  //elelemntX, donde comienza en el eje X, osea la izquierda del SVG
+  const elementX = target.getBoundingClientRect().x;
+  //touchX la barra que se genera al tocar el display en cooord x
+  const touchX = touches[0].clientX;
+  pointer.value = ((touchX - elementX) * 300) / elementWidth;
+};
+//para ocultar creamos untap, sin argumento ya que no ocupamos el evento perset, solo deseamos escuchar cuadno sucede
+const untap = () => {
+  showPointer.value = false;
+};
 </script>
 
 <style scoped>

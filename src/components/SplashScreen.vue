@@ -1,7 +1,9 @@
 <template>
   <div class="splashscreen">
-    <img src="@/assets/cashflow-icon.svg" alt="logo" />
-    <h1><span>Cash</span>Flow</h1>
+    <!-- <img src="@/assets/cashflow-icon.svg" alt="logo" /> -->
+    <img src="@/assets/ibazan.webp" alt="logo" />
+    <!-- <h1><span>Cash</span>Flow</h1> -->
+    <h1><span>Ibazan</span>App</h1>
   </div>
 </template>
 

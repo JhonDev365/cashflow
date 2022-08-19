@@ -1,6 +1,8 @@
 <template>
   <div class="movements">
-    <h2 class="title">Historial</h2>
+    <!-- <h2 class="title">Historial</h2> -->
+    <h2 class="title">Placa: VCS249</h2>
+    <h3 class="title">Conductor: Wilmar Ibañez</h3>
     <div class="content">
       <!-- <Movement
         v-for="movement in movements"

@@ -1,5 +1,6 @@
 <template>
-  <button @click="showModal = true">Agregar movimiento</button>
+  <!-- <button @click="showModal = true">Agregar movimiento</button> -->
+  <button @click="showModal = true">Agregar Ruta</button>
   <!-- utilizamos teleport para enviar el modal a otra parte del DOM 
   podemos declarar el codigo del componente y poder tener en un mismo archivo .vue
   los 2 componentes y tener organizado nuestro proyecto  -->
@@ -10,32 +11,41 @@
       <!-- como utilizamos un slot default, no es necsario el tag tempalte -->
       <form @submit.prevent="submit">
         <div class="field">
-          <label>Título</label>
+          <!-- <label>Título</label> -->
+          <label>Ruta</label>
           <input type="text" v-model="title" />
+        </div>
+        <div class="field">
+          <label>Conductor</label>
+          <textarea rows="4" v-model="description"></textarea>
         </div>
         <div class="field">
           <label>Descripción</label>
           <textarea rows="4" v-model="description"></textarea>
         </div>
         <div class="field">
-          <label>Monto</label>
+          <!-- <label>Monto</label> -->
+          <label>Monto facturas</label>
           <input type="number" v-model="amount" />
         </div>
         <div class="field">
           <!-- radio button nos permiten seleccionar opciones multipkles -->
           <label class="radio-label">
             <input type="radio" v-model="movementType" value="Ingreso" />
-            <span>Ingreso</span>
+            <!-- <span>Ingreso</span> -->
+            <span>Visita Efectiva</span>
           </label>
           <label class="radio-label">
             <input type="radio" v-model="movementType" value="Gasto" />
-            <span>Gasto</span>
+            <!-- <span>Gasto</span> -->
+            <span>Visita No Efectiva</span>
           </label>
         </div>
         <div class="action">
           <!-- no se agrega evento click xq de forma nativa button tieen submit
             solo debemos escucharlo en el form -->
-          <button>Agregar movimiento</button>
+          <!-- <button>Agregar movimiento</button> -->
+          <button>Agregar Ruta</button>
         </div>
       </form>
     </Modal>
