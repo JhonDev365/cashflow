@@ -35,12 +35,12 @@
       />
     </svg>
     <p>Ultimos 30 días</p>
-    <div>{{ zero }}</div>
+    <!-- <div>{{ zero }}</div> -->
   </div>
 </template>
 
 <script setup>
-import { defineProps, toRefs, ref, computed } from "vue";
+import { defineProps, defineEmits, toRefs, ref, computed } from "vue";
 const props = defineProps({
   //para que sa reactiva debe ser una funcion
   amounts: {
@@ -82,6 +82,9 @@ const points = computed(() => {
 
 const showPointer = ref(false);
 const pointer = ref(0);
+
+const emit = defineEmits(["select"]);
+
 //creamos las funciones para tap y untap de los eventos touch
 const tap = ({ target, touches }) => {
   showPointer.value = true;
@@ -92,6 +95,7 @@ const tap = ({ target, touches }) => {
   //touchX la barra que se genera al tocar el display en cooord x
   const touchX = touches[0].clientX;
   pointer.value = ((touchX - elementX) * 300) / elementWidth;
+  emit("select", amounts);
 };
 //para ocultar creamos untap, sin argumento ya que no ocupamos el evento perset, solo deseamos escuchar cuadno sucede
 const untap = () => {
