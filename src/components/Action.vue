@@ -79,6 +79,10 @@ const submit = () => {
     //podeos usarlo como id ya que en el msimo seg no se generan 2 datos
     id: new Date().getTime(),
   });
+  title.value = "";
+  description.value = "";
+  amount.value = 0;
+  movementType.value = "Ingreso";
 };
 </script>
 
