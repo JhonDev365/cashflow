@@ -13,7 +13,7 @@
       >
         <template #graphic>
           <!-- yapodemos pasarle y recibir las props amounts a graphic -->
-          <Graphic :amounts="amounts" />
+          <Graphic :amounts="amounts" @select="select" />
         </template>
         <template #action>
           <Action @create="create" />
@@ -134,7 +134,7 @@ export default {
         .map((m) => m.amount);
 
       return lastDays.map((m, i) => {
-        const lastMovements = lastDays.slice(0, i);
+        const lastMovements = lastDays.slice(0, i + 1);
         return lastMovements.reduce((suma, movement) => {
           return suma + movement;
         }, 0);
@@ -176,6 +176,10 @@ export default {
       //almacenar en local, setItem('nombrede mis datos en local',.this.la vaiable donde lo gurdarmeos)
       //de forma mas segura convertirlo en cadena de texto
       localStorage.setItem("movements", JSON.stringify(this.movements));
+    },
+    select(el) {
+      console.log(el);
+      this.amount = el;
     },
     //otra alternativa pero nofunciona
     // remove(id) {

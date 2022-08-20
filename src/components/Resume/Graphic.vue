@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, toRefs, ref, computed } from "vue";
+import { defineProps, defineEmits, toRefs, ref, computed, watch } from "vue";
 const props = defineProps({
   //para que sa reactiva debe ser una funcion
   amounts: {
@@ -77,13 +77,19 @@ const points = computed(() => {
     const x = (300 / total) * (i + 1);
     const y = amountToPixels(amount);
     return `${points} ${x},${y}`;
-  }, "0, 100");
+  }, `0, ${amountToPixels(amounts.value.length ? amounts.value[0] : 0)}`);
 });
 
 const showPointer = ref(false);
 const pointer = ref(0);
-
 const emit = defineEmits(["select"]);
+
+watch(pointer, (value) => {
+  //Math.ceil toma los enteros elimina los decimales
+  const index = Math.ceil(value / (300 / amounts.value.length));
+  if (index < 0 || index > amounts.value.length) return;
+  emit("select", amounts.value[index - 1]);
+});
 
 //creamos las funciones para tap y untap de los eventos touch
 const tap = ({ target, touches }) => {
